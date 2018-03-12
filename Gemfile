@@ -29,6 +29,7 @@ gem 'devise'
 gem 'devise-token_authenticatable'
 gem 'responders'
 gem 'activerecord-session_store'
+gem "administrate"
 
 
 group :development, :test do

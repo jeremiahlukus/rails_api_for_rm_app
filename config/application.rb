@@ -21,6 +21,9 @@ module MentorApp
     # Use the responders controller from the responders gem
     config.app_generators.scaffold_controller :responders_controller
 
+    config.middleware.use ActionDispatch::Flash
+
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
