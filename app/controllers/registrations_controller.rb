@@ -6,12 +6,12 @@ class RegistrationsController < Devise::RegistrationsController
     @user = make_new
     @user.skip_confirmation!
     if @user.save
-      sign_in resource
+      sign_in(@user, store: false)
       render :status => 200,
         :json => { :success => true,
                    :info => "Registered",
-                   :data => { :user => resource,
-                              :auth_token => current_user.authentication_token } }
+                   :data => { :user => @user,
+                              :auth_token => @user.authentication_token } }
     else
       render :status => :unprocessable_entity,
         :json => { :success => false,
