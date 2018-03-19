@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     post 'registrations' => 'registrations#create', :as => 'register'
   end
   get 'feedbacks' => 'feedbacks#index', :as => 'feedbacks'
+  get 'questions' => 'questions#index', :as => 'questions'
 
 end

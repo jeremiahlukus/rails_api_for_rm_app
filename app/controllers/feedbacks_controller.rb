@@ -1,4 +1,3 @@
-# file: app/controllers/api/v1/feedbacks_controller.rb
 class FeedbacksController < ApplicationController
 
   # Just skip the authentication for now
@@ -10,7 +9,11 @@ class FeedbacksController < ApplicationController
 
   def index
     @feedbacks = Feedback.all
-    render json: @feedbacks
+    @ids = Feedback.all.map(&:recipient_id)
+    @reipients = User.where(id: @ids).map(&:name)
+    @both = @feedbacks || @recipients 
+
+    render json: @both
   end
 
   def create
