@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   end
   get 'feedbacks' => 'feedbacks#index', :as => 'feedbacks'
   get 'questions' => 'questions#index', :as => 'questions'
+  put 'feedbacks/:id/open' => 'feedbacks#open', :as => 'open_feedback'
+  put 'feedbacks/:id/complete' => 'feedbacks#complete', :as => 'complete_feedback'
 
 end
