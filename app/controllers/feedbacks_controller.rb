@@ -29,7 +29,7 @@ class FeedbacksController < ApplicationController
   end
 
   def open
-    @feedback = Feedbacks.find(params[:id])
+    @feedback = Feedback.find(params[:id])
     @feedback.open!
   rescue ActiveRecord::RecordNotFound
     render :status => 404,
@@ -39,7 +39,7 @@ class FeedbacksController < ApplicationController
   end
 
   def complete
-    @feedback = Feedbacks.find(params[:id])
+    @feedback = Feedback.find(params[:id])
     @feedback.complete!
   rescue ActiveRecord::RecordNotFound
     render :status => 404,
