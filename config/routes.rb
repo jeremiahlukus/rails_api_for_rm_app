@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     delete 'sessions' => 'sessions#destroy', :as => 'logout'
     post 'registrations' => 'registrations#create', :as => 'register'
   end
+  post 'requests' => 'requests#create', :as => 'request'
   get 'feedbacks' => 'feedbacks#index', :as => 'feedbacks'
   get 'questions' => 'questions#index', :as => 'questions'
   get 'feedbacks/:id/open' => 'feedbacks#open', :as => 'open_feedback'
