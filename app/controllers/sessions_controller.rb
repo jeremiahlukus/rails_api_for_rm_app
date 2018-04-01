@@ -18,6 +18,7 @@ class SessionsController < Devise::SessionsController
   # POST /users
   def create
     @user = User.find_by(email: params[:user][:email])
+    $auth = @user.authentication_token
     render :status => 200,
       :json => { :success => true,
                  :info => "Logged in",

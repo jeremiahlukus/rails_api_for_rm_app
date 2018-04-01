@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
 
+ # before_action :authenticate_user!
   respond_to :json 
-
 
   def create
     @request = make_new
@@ -13,7 +13,7 @@ class RequestsController < ApplicationController
     else
       render :status => :unprocessable_entity,
         :json => { :success => false,
-                   :info => resource.errors,
+                   :info => @user.errors,
                    :data => {} }
     end
  
@@ -26,7 +26,8 @@ class RequestsController < ApplicationController
   end
 
   def make_new
-    @request = Request.new(subject: params[:subject], detail: params[:details], user_id: current_user.id)
+    @request = Request.new(subject: params[:subject], detail: params[:details], user_id: 1)
   end
+
 
 end

@@ -11,7 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
         :json => { :success => true,
                    :info => "Registered",
                    :data => { :user => @user,
-                              :auth_token => @user.authentication_token } }
+                              :auth_token => current_user.authentication_token } }
     else
       render :status => :unprocessable_entity,
         :json => { :success => false,
