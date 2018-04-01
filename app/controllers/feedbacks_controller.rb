@@ -5,10 +5,10 @@ class FeedbacksController < ApplicationController
 
   respond_to :json
 
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   def index
-    @feedbacks = current_user.feedbacks
+    @feedbacks = Feedback.all
     @ids = Feedback.all.map(&:recipient_id)
     @reipients = User.where(id: @ids).map(&:name)
     @both = @feedbacks || @recipients 
